@@ -1,6 +1,6 @@
 testing-students:
   questions-base-path: "./src/test/resources/questionsBaseTest.csv"
-  questions-number: 3
+  questions-number: 5
   required-correct-answers: 2
   success-message: "You were successful!"
   fail-message: "You failed :-("

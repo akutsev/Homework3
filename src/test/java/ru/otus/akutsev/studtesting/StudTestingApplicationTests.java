@@ -32,31 +32,8 @@ class StudTestingApplicationTests {
 	}
 
 	@BeforeEach
-	private void clearOutput() {
+	private void cleanOutput() {
 		outputStream.reset();
-	}
-
-	@Test
-	void studentTestServiceTest_questionsLessThanInBase() throws IOException {
-		int questionsNum = 3;
-
-		String input = "1147" + "\n1703" + "\nbla-bla";
-		inputStream = new ByteArrayInputStream(input.getBytes());
-		System.setIn(inputStream);
-
-		studentTestService.startStudentTest();
-
-		String startSting = messageSource.getMessage("start.message",
-				new Integer[] {questionsNum}, Locale.US);
-		String[] expectedOutput = {startSting, "When Moscow city was founded?",
-				"When Saint Petersberg city was founded?", "How many regions there are in Russia?",
-				"You were successful!"};
-		Arrays.sort(expectedOutput);
-
-		String[] actualOutput = outputStream.toString().split("\r\n");
-		Arrays.sort(actualOutput);
-
-		assertArrayEquals(expectedOutput, actualOutput);
 	}
 
 	@Test
@@ -82,11 +59,6 @@ class StudTestingApplicationTests {
 		Arrays.sort(actualOutput);
 
 		assertArrayEquals(expectedOutput, actualOutput);
-	}
-
-	@AfterEach
-	private void clearInput() {
-		inputStream.reset();
 	}
 
 	@AfterAll

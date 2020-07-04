@@ -18,6 +18,8 @@ public class StudentTestServiceImpl implements StudentTestService{
 	private final YamlProps yamlProps;
 	private final MessageSource messageSource;
 
+	private static final String START_MESSAGE_BUNDLE_PROPERTY = "start.message";
+
 	@Autowired
 	public StudentTestServiceImpl(QuestionsDaoCsv questionsDaoCsv, YamlProps yamlProps, MessageSource messageSource) {
 		this.questionsDaoCsv = questionsDaoCsv;
@@ -50,7 +52,7 @@ public class StudentTestServiceImpl implements StudentTestService{
 	}
 
 	private void printStartMessage() {
-		String message = messageSource.getMessage("start.message",
+		String message = messageSource.getMessage(START_MESSAGE_BUNDLE_PROPERTY,
 				new Integer[] {yamlProps.getQuestionsNumber()}, yamlProps.getLocale());
 		System.out.println(message);
 	}
