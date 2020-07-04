@@ -1,0 +1,8 @@
+testing-students:
+  questions-base-path: "./src/main/resources/questionsBase.csv"
+  questions-number: 6
+  required-correct-answers: 2
+  success-message: "You were successful!"
+  fail-message: "You failed :-("
+  no-more-questions-message: "No more question in base. Change questions number setting"
+  locale: ru_RU
